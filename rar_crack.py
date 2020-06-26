@@ -2,6 +2,7 @@ from brute import brute
 from unrar import rarfile
 import os
 import pandas as pd
+# import psutil
 
 
 def fromdictionary(dicname):
@@ -23,6 +24,7 @@ def crackrar(rarfilename, pwdgenerator):
                 found = True
                 break
         except rarfile.BadRarFile:
+            # print('pwd = %s memory percent : %s' % (pwd, psutil.virtual_memory()[3]/1024/1024/1024))
             pass
     if not found:
         print("Sorry, cannot find the password")
